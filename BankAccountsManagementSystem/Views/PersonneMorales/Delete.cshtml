@@ -1,0 +1,48 @@
+﻿@model BankAccountsManagementSystem.Models.PersonneMorale
+
+@{
+    ViewBag.Title = "Supprimer";
+}
+
+<h2>Supprimer</h2>
+
+<h3>Vous êtes sur le point de supprimer ce client :</h3>
+<div>
+    <h4>Personne morale</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatriculFiscal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatriculFiscal)
+        </dd>
+
+    </dl>
+    <h4>Voulez-vous continuer ?</h4>
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à la liste", "Index")
+        </div>
+    }
+</div>

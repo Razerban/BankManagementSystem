@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BankAccountsManagementSystem.Models.Credit>
+
+@{
+    ViewBag.Title = "Credits";
+}
+
+<h2>Crédits</h2>
+
+<p>
+    @Html.ActionLink("Nouveau crédit", "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Rechercher : @Html.TextBox("SearchString")
+        <input type="submit" value="Rechercher" />
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Client.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MontantCredit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Planification)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PayementMonsuel)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.Nom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MontantCredit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Planification)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayementMonsuel)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "Edit", new { id=item.CreditId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CreditId }) |
+            @Html.ActionLink("Supprimer", "Delete", new { id=item.CreditId })
+        </td>
+    </tr>
+}
+
+</table>
