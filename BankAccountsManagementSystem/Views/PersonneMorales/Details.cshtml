@@ -1,0 +1,90 @@
+﻿@model BankAccountsManagementSystem.Models.PersonneMorale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Personne morale</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adresse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adresse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MatriculFiscal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MatriculFiscal)
+        </dd>
+
+    </dl>
+    @Html.ActionLink("Modifier les informations du client", "Edit", new {id = Model.Id})
+</div>
+<div>
+    <br />
+    <h4>Comptes</h4>
+    <table class="table">
+        <tr>
+            <th>Numéro de compte</th>
+            <th>Type</th>
+            <th>Solde</th>
+            <th>Date ouverture</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.Comptes)
+        {
+            <tr>
+                <td>
+
+                    @{
+            var item1 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item1.CompteId)
+                </td>
+                <td>
+
+                    @{
+            var item2 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item2.Type)
+                </td>
+                <td>
+
+                    @{
+            var item3 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item3.SoldeBase)
+                </td>
+                <td>
+
+                    @{
+            var item4 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item4.DateOuverture)
+                </td>
+                <td>@Html.ActionLink("Modifier", "Edit", "Comptes", new { id = item.CompteId }, null) | @Html.ActionLink("Details", "Details", "Comptes", new { id = item.CompteId }, null)</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>
