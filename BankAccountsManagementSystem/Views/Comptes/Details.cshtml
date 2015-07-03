@@ -1,0 +1,96 @@
+﻿@model BankAccountsManagementSystem.Models.Compte
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Compte</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Client.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoldeBase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoldeBase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOuverture)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOuverture)
+        </dd>
+
+    </dl>
+    @Html.ActionLink("Modifier les informations du compte", "Edit", new {id = Model.ClientId})
+</div>
+<div>
+    <br />
+    <h4>Opérations</h4>
+    <table class="table">
+        <tr>
+            <th>Numéro de l'opération</th>
+            <th>Type</th>
+            <th>Montant</th>
+            <th>Date</th>
+        </tr>
+        @foreach (var item in Model.Operations)
+        {
+            <tr>
+                <td>
+
+                    @{
+            var item1 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item1.OperationId)
+                </td>
+                <td>
+
+                    @{
+            var item2 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item2.Type)
+                </td>
+                <td>
+
+                    @{
+            var item3 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item3.Montant)
+                </td>
+                <td>
+
+                    @{
+            var item4 = item;
+                    }
+                    @Html.DisplayFor(modelItem => item4.Date)
+                </td>
+            </tr>
+        }
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Retour à la liste", "Index")
+</p>

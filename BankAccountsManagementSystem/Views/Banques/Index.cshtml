@@ -1,0 +1,62 @@
+﻿@model BankAccountsManagementSystem.Models.Banque
+
+@{
+    ViewBag.Title = "ENIT Bank";
+}
+
+<hr />
+<h2>&nbsp; &nbsp; &nbsp; &nbsp; ENIT Bank</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Capital)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capital)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrClients)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbrClients)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrComptes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbrComptes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbrCredits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbrCredits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArgentDepose)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArgentDepose)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SommeCredits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SommeCredits)
+        </dd>
+
+    </dl>
+</div>
